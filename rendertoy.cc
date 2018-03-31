@@ -162,7 +162,8 @@ int main(int argc, char **argv)
         /* Main loop */
         bool running = true;
         float mouse[4];
-        auto prev = std::chrono::high_resolution_clock::now();
+        auto start = std::chrono::high_resolution_clock::now();
+        auto prev = start;
         while (running) {
                 SDL_Event event;
                 while (SDL_PollEvent(&event)) switch (event.type) {
@@ -188,7 +189,7 @@ int main(int argc, char **argv)
                 
                 auto now = std::chrono::high_resolution_clock::now();
                 float diff = std::chrono::duration_cast<std::chrono::duration<float>>(now - prev).count();
-                float nowTime = std::chrono::duration_cast<std::chrono::duration<float>>(now.time_since_epoch()).count();
+                float nowTime = std::chrono::duration_cast<std::chrono::duration<float>>(now - start).count();
                 prev = now;
 
                 render(nowTime, diff, mouse);
