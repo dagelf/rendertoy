@@ -13,4 +13,4 @@ clean:
 	rm -rf *.o *.d *.dSYM rendertoy
 
 rendertoy: rendertoy.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $< -o $@
+	$(CXX) $(CXXFLAGS) $< -o $@ $(LDFLAGS)
