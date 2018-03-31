@@ -1,5 +1,5 @@
 CXXFLAGS = -std=c++1y -Wall -Wextra -pedantic
-LDFLAGS = -lsdl2 -lglew
+LDFLAGS = -lSDL2 -lGLEW
 ifeq ($(shell uname -s),Darwin)
 LDFLAGS += -framework OpenGL
 else

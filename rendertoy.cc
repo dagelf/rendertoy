@@ -156,8 +156,8 @@ int main(int argc, char **argv)
         f.close();
 
         /* Set up GL */
-        const char *fragment = ss.str().c_str();
-        prerender(fragment);
+        std::string fragment = ss.str();
+        prerender(fragment.c_str());
 
         /* Main loop */
         bool running = true;
