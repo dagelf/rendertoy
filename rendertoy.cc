@@ -4,6 +4,9 @@
 #include <cstdlib>
 #include <chrono>
 
+#define xres 640
+#define yres 480
+
 #include <SDL2/SDL.h>
 #include <GL/glew.h>
 
@@ -15,7 +18,7 @@ SDL_Window *init(void)
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
-        return SDL_CreateWindow("Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 720, SDL_WINDOW_OPENGL);
+        return SDL_CreateWindow("Demo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, xres, yres, SDL_WINDOW_OPENGL);
 }
 
 int fini(SDL_Window *win)
@@ -126,7 +129,7 @@ void render(float timeTime, float timeDiff, const float *mouse)
 {
         glUniform1f(atime, timeTime);
         glUniform1f(atimeDelta, timeDiff);
-        glUniform2f(ares, 1280, 720);
+        glUniform2f(ares, xres, yres);
         glUniform4fv(amouse, 1, mouse);
         glDrawArrays(GL_TRIANGLES, 0, 3);
         glDrawArrays(GL_TRIANGLES, 3, 3);
