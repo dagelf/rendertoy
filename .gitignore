@@ -1,5 +1,4 @@
 *.o
 *.dSYM
 *.d
-*.glsl
 /rendertoy
